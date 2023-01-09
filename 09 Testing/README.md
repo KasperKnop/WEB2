@@ -23,6 +23,6 @@
 </details>
 </blockquote>
 
-<sub><sup>_Exercise XX are created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)_<sup><sub>
+<sub><sup>_Exercise XXX are created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)_<sup><sub>
 
 -->
