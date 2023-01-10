@@ -2,7 +2,7 @@
 
 <!--
 
-# 10 Canvas
+# 10 Exercises: Canvas
 
 ## 1.
 

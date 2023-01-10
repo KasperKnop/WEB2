@@ -2,7 +2,7 @@
 
 <!--
 
-# 02 Functional Programming in JS
+# 02 Exercises: Functional Programming in JS
 
 ## 1.
 

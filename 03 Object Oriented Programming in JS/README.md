@@ -2,7 +2,7 @@
 
 <!--
 
-# 03 Object Oriented Programming in JS
+# 03 Exercises: Object Oriented Programming in JS
 
 ## 1.
 

@@ -2,7 +2,7 @@
 
 <!--
 
-# 11 TypeScript
+# 11 Exercises: TypeScript
 
 ## 1.
 

@@ -1,4 +1,4 @@
-# 01 Fundamentals
+# 01 Exercises: Fundamentals
 
 ## 1. Set Up Your Development Environment
 

@@ -2,7 +2,7 @@
 
 <!--
 
-# 06 React 1
+# 06 Exercises: React 1
 
 ## 1.
 
