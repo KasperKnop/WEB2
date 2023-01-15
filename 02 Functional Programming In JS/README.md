@@ -38,7 +38,7 @@ console.log(squaredIntegers)
 </details>
 </blockquote>
 
-# 2. Flattening
+## 2. Flattening
 
 Use the `reduce` method in combination with the `concat` method to “flatten” an array of arrays into a single array that has all the elements of the original arrays.
 
@@ -66,7 +66,7 @@ console.log(arrays.reduce((flat, current) => flat.concat(current), []))
 </details>
 </blockquote>
 
-# 3. Your Own loop
+## 3. Your Own loop
 
 Write a higher-order function `loop` that provides something like a `for` loop statement. It takes a value, a test function, an update function, and a body function. Each iteration, it first runs the test function on the current loop value and stops if that returns false. Then it calls the body function, giving it the current value. Finally, it calls the update function to create a new value and starts from the beginning.
 
@@ -122,7 +122,7 @@ loop(
 </details>
 </blockquote>
 
-# 4. Alphabetical Sorting
+## 4. Alphabetical Sorting
 
 The `sort` method sorts the elements of an array according to an optional callback function:
 
@@ -178,7 +178,7 @@ console.log(letters)
 </details>
 </blockquote>
 
-# 5. Composing a URL
+## 5. Composing a URL
 
 As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that `map` and `filter` are special cases of reduce.
 
@@ -222,7 +222,7 @@ console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"))
 </details>
 </blockquote>
 
-# 6. Everything
+## 6. Everything
 
 Analogous to the `some` method, arrays also have an `every` method. This one returns true when the given function returns true for _every_ element in the array. In a way, `some` is a version of the `||` operator that acts on arrays, and `every` is like the `&&` operator.
 
