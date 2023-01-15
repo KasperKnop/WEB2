@@ -180,7 +180,7 @@ console.log(letters)
 
 ## 5. From Title To URL
 
-As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that `map` and `filter` are special cases of reduce.
+As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that `map` and `filter` are special cases of reduce
 
 However, this exercise you should try to solve without using any higher order functions.
 
