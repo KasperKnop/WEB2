@@ -205,7 +205,7 @@ console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"))
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>Since we are passed a string primitive, which is immutable, we do not have to be concerned with mutating the input.</p>
+<p>Since we are passed a string primitive, which is immutable, we do not have to be concerned with input mutation.</p>
 <p>The string method <code>split</code> can be used to split a string into substrings and store them in an array. Conversely, the array method <code>join</code> creates a string concatenating all of the elements in an array.</p>
 <details>
 <summary>Display solution...</summary>
