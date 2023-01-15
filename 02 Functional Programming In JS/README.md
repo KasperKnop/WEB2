@@ -186,7 +186,7 @@ However, this exercise you should try to solve without using any higher order fu
 
 Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example `"Learn Functional Programmin In JavaScript"` would result in `.../learn-functional-programming-in-javascript`.
 
-Fill in the `urlSlug` function so it converts a string `title` and returns the hyphenated version for the URL:
+Fill in the pure function, `urlSlug`, so it converts a string `title` and returns the hyphenated version for the URL:
 
 -   The input is a string with spaces and title-cased words
 -   The output is a string with the spaces between words replaced by a hyphen (`-`)
