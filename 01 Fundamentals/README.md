@@ -235,7 +235,26 @@ console.log(sum(range(1, 10)))
 </details>
 </blockquote>
 
-## 7. Taking Advantage Of Closures
+## 7. Currying
+
+The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1. In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on. This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available.
+
+Here is an example:
+
+```js
+function unCurried(x, y) {
+    return x + y
+}
+
+function curried(x) {
+    return function (y) {
+        return x + y
+    }
+}
+
+console.log(curried(1)(2))
+// → 3
+```
 
 Modify the `range` function from the previous exercise. If it is called with just a `start` argument, another function will be returned that expects just the `end` argument.
 
@@ -256,6 +275,7 @@ console.log(rangeFrom7To(9))
 <blockquote>
 <details>
 <summary>Display hints...</summary>
+<p>This task is simpler if you take advantage of closures.</p>
 <p>Parameters default to <code>undefined</code> if no argument is given. Use this to do a check in the beginning of your <code>range</code> function. If no <code>end</code> argument was passed, return a new function that calls the <code>range</code> function.</p>
 <details>
 <summary>Display solution...</summary>

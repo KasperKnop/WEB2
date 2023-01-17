@@ -223,7 +223,50 @@ console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"))
 </details>
 </blockquote>
 
-## 6. Everything
+## 6. Something
+
+The `some` method works with arrays to check if _any_ element passes a particular test. It returns a Boolean value - `true` if any of the values meet the criteria, `false` if not.
+
+Use the `some` method inside the `checkPositive` function to check if any element in the array is positive. The function should return a Boolean value.
+
+```js
+function checkPositive(arr) {
+    // Your code here.
+}
+
+checkPositive([1, 2, 3, -4, 5])
+// → true
+```
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+<p>As an example, the following code would check if any element in the <code>numbers</code> array is less than 10:</p>
+
+```js
+const numbers = [10, 50, 8, 220, 110, 11]
+
+console.log(numbers.some(e => e < 10))
+// → true
+```
+
+<details>
+<summary>Display solution...</summary>
+
+```js
+function checkPositive(array) {
+    return array.some(e => e > 0)
+}
+
+checkPositive([1, 2, 3, -4, 5])
+// → true
+```
+
+</details>
+</details>
+</blockquote>
+
+## 7. Everything
 
 Analogous to the `some` method, arrays also have an `every` method. This one returns true when the given function returns true for _every_ element in the array. In a way, `some` is a version of the `||` operator that acts on arrays, and `every` is like the `&&` operator.
 
@@ -268,6 +311,149 @@ console.log(every([2, 4, 16], n => n < 10))
 // → false
 console.log(every([], n => n < 10))
 // → true
+```
+
+</details>
+</details>
+</blockquote>
+
+## 8. Dominant Writing Direction
+
+Write a function that computes the dominant writing direction in a string of text.
+
+For this task you will need to place the `SCRIPTS.js` file next to your solution. This file contains a SCRIPTS constant with an array of objects, each of which describes a script:
+
+```js
+{
+  name: "Coptic",
+  ranges: [[994, 1008], [11392, 11508], [11513, 11520]],
+  direction: "ltr",
+  year: -200,
+  living: false,
+  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
+}
+```
+
+As you can see, each script object has a `direction` property that can be `"ltr"` (left to right), `"rtl"` (right to left), or `"ttb"` (top to bottom).
+
+The dominant direction is the direction of a majority of the characters that have a script associated with them. The `characterScript` and `countBy` functions defined in the code below are probably useful here.
+
+```js
+require("./scripts.js")
+
+function dominantDirection(text) {
+    // Your code here.
+}
+
+function countBy(items, groupName) {
+    let counts = []
+    for (let item of items) {
+        let name = groupName(item)
+        let known = counts.findIndex(c => c.name === name)
+        if (known === -1) {
+            counts.push({ name, count: 1 })
+        } else {
+            counts[known].count++
+        }
+    }
+    return counts
+}
+
+function characterScript(code) {
+    for (let script of SCRIPTS) {
+        if (
+            script.ranges.some(([from, to]) => {
+                return code >= from && code < to
+            })
+        ) {
+            return script
+        }
+    }
+    return null
+}
+
+console.log(dominantDirection("Hello!"))
+// → ltr
+console.log(dominantDirection("Hey, مساء الخير"))
+// → rtl
+```
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+<p>Your solution might look a lot like the first half of this example:</p>
+
+```js
+function textScripts(text) {
+    let scripts = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0))
+        return script ? script.name : "none"
+    }).filter(({ name }) => name != "none")
+
+    let total = scripts.reduce((n, { count }) => n + count, 0)
+    if (total == 0) return "No scripts found"
+
+    return scripts
+        .map(({ name, count }) => {
+            return `${Math.round((count * 100) / total)}% ${name}`
+        })
+        .join(", ")
+}
+
+console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'))
+// → 61% Han, 22% Latin, 17% Cyrillic
+```
+
+<p>You also have to count characters by a criterion based on <code>characterScript</code> and then filter out the part of the result that refers to uninteresting (script-less) characters.</p>
+<p>Finding the direction with the highest character count can be done with <code>reduce</code>.</p>
+<details>
+<summary>Display solution...</summary>
+
+```js
+require("./scripts.js")
+
+function dominantDirection(text) {
+    let counted = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0))
+        return script ? script.direction : "none"
+    }).filter(({ name }) => name !== "none")
+
+    if (counted.length === 0) return "ltr"
+
+    return counted.reduce((a, b) => (a.count > b.count ? a : b)).name
+}
+
+function countBy(items, groupName) {
+    let counts = []
+    for (let item of items) {
+        let name = groupName(item)
+        let known = counts.findIndex(c => c.name === name)
+        if (known === -1) {
+            counts.push({ name, count: 1 })
+        } else {
+            counts[known].count++
+        }
+    }
+    return counts
+}
+
+function characterScript(code) {
+    for (let script of SCRIPTS) {
+        if (
+            script.ranges.some(([from, to]) => {
+                return code >= from && code < to
+            })
+        ) {
+            return script
+        }
+    }
+    return null
+}
+
+console.log(dominantDirection("Hello!"))
+// → ltr
+console.log(dominantDirection("Hey, مساء الخير"))
+// → rtl
 ```
 
 </details>
