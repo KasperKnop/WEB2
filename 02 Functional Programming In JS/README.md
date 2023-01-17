@@ -463,7 +463,7 @@ console.log(dominantDirection("Hey, مساء الخير"))
 ##
 
 <sub><sup><em>
-Exercise 1 & 4-5 are created with inspiration from [FreeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp). Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+Exercise 1 & 4-6 are created with inspiration from [FreeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp). Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 <br>
-Exercise 2-3 & 6 are created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)
+Exercise 2-3 & 7-8 are created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)
 </em></sup></sub>
