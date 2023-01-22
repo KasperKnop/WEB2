@@ -460,3 +460,5 @@ console.log(Object.prototype.hasOwnProperty.call(obj, "one"))
 </details>
 </details>
 </blockquote>
+
+<sub><sup><em>Exercise 7 & 8 are created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)</em><sup><sub>
