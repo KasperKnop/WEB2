@@ -275,7 +275,7 @@ console.log(rangeFrom7To(9))
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>This task is simpler if you take advantage of closures.</p>
+<p>This task takes advantage of closures.</p>
 <p>Parameters default to <code>undefined</code> if no argument is given. Use this to do a check in the beginning of your <code>range</code> function. If no <code>end</code> argument was passed, return a new function that calls the <code>range</code> function.</p>
 <details>
 <summary>Display solution...</summary>
