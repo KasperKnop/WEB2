@@ -2,7 +2,7 @@
 
 <!--
 
-# 05 Exercises: Asynchronous JS & APIs
+# 05 Exercises: Asynchronous Programming
 
 ## 1.
 

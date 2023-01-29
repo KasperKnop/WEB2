@@ -1,4 +1,4 @@
-# 02 Exercises: Functional Programming in JS
+# 02 Exercises: Functional Programming In JS
 
 ## 1. Squaring Integers
 
