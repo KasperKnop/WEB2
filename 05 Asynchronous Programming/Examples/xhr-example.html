@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>XHR Example</title>
+</head>
+
+<body>
+    <img>
+    <script>
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", "https://pokeapi.co/api/v2/pokemon/wartortle")
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                const pokemon = JSON.parse(xhr.responseText)
+                const imageUrl = pokemon?.sprites?.front_default
+                document.querySelector("img").src = imageUrl
+            }
+        }
+        xhr.onerror = () => console.log("Network Error!")
+        xhr.send()
+    </script>
+</body>
+
+</html>
