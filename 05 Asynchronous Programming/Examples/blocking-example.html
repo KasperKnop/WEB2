@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blocking Example</title>
+</head>
+
+<body>
+    <button onclick="slowFunction()">Run Slow Operation</button>
+    <button onclick="alert('HI!')">Open Alert</button>
+    <script>
+        function slowFunction() {
+            for (let i = 0; i < 500000; i++) {
+                console.log(i)
+            }
+        }
+    </script>
+</body>
+
+</html>

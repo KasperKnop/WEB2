@@ -13,7 +13,7 @@ Implement the Java class diagram below using factory functions in JavaScript.
 ```js
 // Your code here.
 
-console.log(Circle(Point(1, 2), 4).toString())
+console.log(createCircle(createPoint(1, 2), 4).toString())
 // → Circle(Center: [1,2], Radius: 4)
 ```
 
@@ -27,7 +27,7 @@ console.log(Circle(Point(1, 2), 4).toString())
 <summary>Display solution...</summary>
 
 ```js
-function Circle(center, radius) {
+function createCircle(center, radius) {
     return {
         getCenterX: () => center.getX(),
         getCenterY: () => center.getY(),
@@ -37,7 +37,7 @@ function Circle(center, radius) {
     }
 }
 
-function Point(x, y) {
+function createPoint(x, y) {
     return {
         getX: () => x,
         getY: () => y,
@@ -49,7 +49,7 @@ function Point(x, y) {
     }
 }
 
-console.log(Circle(Point(1, 2), 4).toString())
+console.log(createCircle(createPoint(1, 2), 4).toString())
 // → Circle(Center: [1,2], Radius: 4)
 ```
 
@@ -70,7 +70,7 @@ Using the solution from previous exercise, create an array of circles. Use the a
 <summary>Display solution...</summary>
 
 ```js
-const circles = [Circle(Point(1, 2), 7), Circle(Point(2, 4), 5), Circle(Point(2, 4), 3)]
+const circles = [createCircle(createPoint(1, 2), 7), createCircle(createPoint(2, 4), 5), createCircle(createPoint(2, 4), 3)]
 const radii = circles.map(circle => circle.getRadius())
 console.log(radii)
 // → [7, 5, 3]
@@ -91,9 +91,9 @@ But JavaScript does not support method overloading like Java and C#. Use the cod
 ```js
 // Your code here.
 
-console.log(Circle({ x: 2, y: 2, radius: 4 }).getCenterX())
+console.log(createCircle({ x: 2, y: 2, radius: 4 }).getCenterX())
 // → 2
-console.log(Circle({ center: Point(2, 2), radius: 4 }).getCenterX())
+console.log(createCircle({ center: createPoint(2, 2), radius: 4 }).getCenterX())
 // → 2
 ```
 
@@ -106,7 +106,7 @@ console.log(Circle({ center: Point(2, 2), radius: 4 }).getCenterX())
 <summary>Display solution...</summary>
 
 ```js
-function Circle({ x, y, center = Point(x, y), radius }) {
+function createCircle({ x, y, center = createPoint(x, y), radius }) {
     return {
         getCenterX: () => center.getX(),
         getCenterY: () => center.getY(),
@@ -116,7 +116,7 @@ function Circle({ x, y, center = Point(x, y), radius }) {
     }
 }
 
-function Point(x, y) {
+function createPoint(x, y) {
     return {
         getX: () => x,
         getY: () => y,
@@ -128,9 +128,9 @@ function Point(x, y) {
     }
 }
 
-console.log(Circle({ x: 2, y: 2, radius: 4 }).getCenterX())
+console.log(createCircle({ x: 2, y: 2, radius: 4 }).getCenterX())
 // → 2
-console.log(Circle({ center: Point(2, 2), radius: 4 }).getCenterX())
+console.log(createCircle({ center: createPoint(2, 2), radius: 4 }).getCenterX())
 // → 2
 ```
 
@@ -147,7 +147,7 @@ Implement the Java class diagram below using factory functions in JavaScript.
 ```js
 // Your code here.
 
-const santa = Employee({ name: "Santa Clause", age: 1752, salary: 0 })
+const santa = createEmployee({ name: "Santa Clause", age: 1752, salary: 0 })
 console.log(santa.toString())
 // → Name: Santa Clause, Age: 1752, Salary: 0
 ```
@@ -162,7 +162,7 @@ console.log(santa.toString())
 <summary>Display solution...</summary>
 
 ```js
-function Person(name, age) {
+function createPerson(name, age) {
     return {
         getName: () => name,
         setName: newName => (name = newName),
@@ -173,8 +173,8 @@ function Person(name, age) {
     }
 }
 
-function Employee({ name, age, salary }) {
-    const person = Person(name, age)
+function createEmployee({ name, age, salary }) {
+    const person = createPerson(name, age)
 
     return {
         ...person,
@@ -185,7 +185,7 @@ function Employee({ name, age, salary }) {
     }
 }
 
-const santa = Employee({ name: "Santa Clause", age: 1752, salary: 0 })
+const santa = createEmployee({ name: "Santa Clause", age: 1752, salary: 0 })
 console.log(santa.toString())
 // → Name: Santa Clause, Age: 1752, Salary: 0
 ```
