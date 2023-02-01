@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Example</title>
+</head>
+
+<body>
+    <img>
+    <script>
+        fetch("https://pokeapi.co/api/v2/pokemon/wartortle")
+            .then(response => {
+                if (response.ok) return response.json()
+                throw new Error("Network response was not OK")
+            })
+            .then(pokemon => {
+                const imageUrl = pokemon?.sprites?.front_default
+                document.querySelector("img").src = imageUrl
+            })
+            .catch(err => console.log(err))
+    </script>
+</body>
+
+</html>
