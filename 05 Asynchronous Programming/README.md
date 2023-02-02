@@ -16,8 +16,8 @@ Make sure the page fails gracefully if there are any issues with the asynchronou
 <details>
 <summary>Display hints...</summary>
 <p>Take some time to familiarize yourself with the API. The endpoint for a specific pokemon is:</p>
-<p><code>“https://pokeapi.co/api/v2/pokemon/{pokemon-name-or-id}”</code></p>
-<p>The implementation will take advantage of callbacks from the XMLHttpRequest ob</p>
+<p><code>https://pokeapi.co/api/v2/pokemon/{pokemon-name-or-id}</code></p>
+<p>The implementation will take advantage of callbacks from the XMLHttpRequest object. The <load>load</code> event is fired when an XMLHttpRequest transaction completes successfully.</p>
 <p>You can extract the response through the <code>responseText</code> property on the <code>XMLHttpRequest</code> object and you can deserialize any JSON with <code>JSON.parse</code>.</p>
 <p>Error handling has its own callback, but this does not cover any HTTP error status. You can check the status code through the <code>status</code> property on the XMLHttpRequest object.</p>
 <details>
