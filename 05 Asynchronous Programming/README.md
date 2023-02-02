@@ -1,5 +1,3 @@
-# :construction: Under Construction :construction:
-
 # 05 Exercises: Asynchronous Programming
 
 ## 1. A Childhood Callback
