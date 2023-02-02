@@ -325,7 +325,7 @@ In the `printTotalWeight` function below, use `Promise.all` to collect the resul
 <details>
 <summary>Display hints...</summary>
 <p>Remember that the API does not accept a pokémon name starting with a capital letter!</p>
-<p>You can use <code>map</code> and <code>json</code> to convert the response into JavaScript objects, but since <code>json</code> returns a <code>Promise</code>, you will have to use <code>Promise.all</code> twice - once to retrieve the responses and again to retrieve the list of pokémon from the responses</p>
+<p>You can use <code>map</code> and <code>json</code> to convert the response into JavaScript objects, but since <code>json</code> returns a <code>Promise</code>, you will have to use <code>Promise.all</code> twice - once to retrieve the responses and again to retrieve the list of pokémon from the responses.</p>
 <p>You can use <code>reduce</code> to reduce the list of pokémon into their total weight. To avoid using floating point numbers, the API returns the weight of a pokémon in hectogram(hg), which means you have to divide the result with 10 to get it in kilograms(kg).</p>
 <details>
 <summary>Display solution...</summary>
