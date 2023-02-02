@@ -15,7 +15,7 @@ Make sure the page fails gracefully if there are any issues with the asynchronou
 <summary>Display hints...</summary>
 <p>Take some time to familiarize yourself with the API. The endpoint for a specific pokémon is:</p>
 <p><code>https://pokeapi.co/api/v2/pokemon/{pokemon-name-or-id}</code></p>
-<p>The implementation will take advantage of callbacks from the XMLHttpRequest object. The <load>load</code> event is fired when an XMLHttpRequest transaction completes successfully.</p>
+<p>The implementation will take advantage of callbacks from the <code>XMLHttpRequest</code> object. The <load>load</code> event is fired when an <code>XMLHttpRequest</code> transaction completes successfully.</p>
 <p>You can extract the response through the <code>responseText</code> property on the <code>XMLHttpRequest</code> object and you can deserialize any JSON with <code>JSON.parse</code>.</p>
 <p>Error handling has its own callback, but this does not cover any HTTP error status. You can check the status code through the <code>status</code> property on the XMLHttpRequest object.</p>
 <details>
@@ -324,7 +324,7 @@ In the `printTotalWeight` function below, use `Promise.all` to collect the resul
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>The API does not accept a pokémon name starting with a capital letter!</p>
+<p>Remember that the API does not accept a pokémon name starting with a capital letter!</p>
 <p>You can use <code>map</code> and <code>json</code> to convert the response into JavaScript objects, but since <code>json</code> returns a <code>Promise</code>, you will have to use <code>Promise.all</code> twice - once to retrieve the responses and again to retrieve the list of pokémon from the responses</p>
 <p>You can use <code>reduce</code> to reduce the list of pokémon into their total weight. To avoid using floating point numbers, the API returns the weight of a pokémon in hectogram(hg), which means you have to divide the result with 10 to get it in kilograms(kg).</p>
 <details>
