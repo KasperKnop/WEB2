@@ -2,7 +2,7 @@
 
 # 05 Exercises: Asynchronous Programming
 
-## 1. A Callback To Childhood
+## 1. A Childhood Callback
 
 [PokéAPI](https://pokeapi.co/) is a free RESTful Pokémon API, that serves data from the pokémon video game series.
 
@@ -212,19 +212,75 @@ Implement the previous exercise using `async`/`await`.
 </details>
 </blockquote>
 
-## 4. Your Own Promise
+## 4. Replicating Fetch With XHR and Promises
 
-Write your own `Promise` returning function using `XMLHttpRequest`, that can be used instead of `fetch` in the two previous exercises.
+Write your own `Promise`-returning function using `XMLHttpRequest`. Unlike `fetch` it should throw an error on any HTTP status code other than 200, and it should deserialize the response directly to a JavaScript object so that we don't have to call `json` on the response. Use it in your solution to the previous exercise.
 
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
+<p>Your function needs to return a <code>Promise</code>. Remember that the <code>Promise</code> constructur takes a function as argument, that itself has two arguments - one function for resolving the <code>Promise</code> and one function for rejecting it. You should use these functions together with the <code>XMLHttpRequest</code> callbacks to determine when the <code>Promise</code> is resolved or rejected.</p>
 <details>
 <summary>Display solution...</summary>
 
 ```html
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Replicating Fetch With XHR and Promises</title>
+    </head>
 
+    <body>
+        <input type="text" />
+        <button onclick="getPokemon(document.querySelector('input').value)">Submit</button>
+
+        <p>Request status: <span id="message"></span></p>
+        <div>
+            <img width="96" height="96" />
+            <p>Number: <span id="id"></span></p>
+            <p>Name: <span id="name"></span></p>
+            <p>Type: <span id="type"></span></p>
+        </div>
+
+        <script>
+            async function getPokemon(pokemon) {
+                if (pokemon === "") return
+                try {
+                    const pkmn = await fakeFetch("https://pokeapi.co/api/v2/pokemon/" + pokemon)
+                    document.querySelector("#message").innerText = "Success!"
+                    document.querySelector("img").src = pkmn.sprites.front_default
+                    document.querySelector("#id").innerText = pkmn.id
+                    document.querySelector("#name").innerText = pkmn.name
+                    const primaryType = pkmn.types[0].type.name
+                    const secondaryType = pkmn.types[1]?.type.name
+                    document.querySelector("#type").innerText = secondaryType ? `${primaryType}/${secondaryType}` : primaryType
+                } catch (err) {
+                    document.querySelector("#message").innerText = err
+                    document.querySelector("#id").innerText = ""
+                    document.querySelector("#name").innerText = ""
+                    document.querySelector("img").src = ""
+                    document.querySelector("#type").innerText = ""
+                }
+            }
+
+            function fakeFetch(url) {
+                return new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest()
+                    xhr.open("GET", url)
+                    xhr.onload = () => {
+                        if (xhr.status == 200) {
+                            resolve(JSON.parse(xhr.responseText))
+                        } else {
+                            reject(new Error("Response was not OK!"))
+                        }
+                    }
+                    xhr.onerror = () => reject(new Error("Network Error!"))
+                    xhr.send()
+                })
+            }
+        </script>
+    </body>
+</html>
 ```
 
 </details>
@@ -272,7 +328,7 @@ In the `printTotalWeight` function below, use `Promise.all` to collect the resul
 <summary>Display hints...</summary>
 <p>The API does not accept a pokémon name starting with a capital letter!</p>
 <p>You can use <code>map</code> and <code>json</code> to convert the response into JavaScript objects, but since <code>json</code> returns a <code>Promise</code>, you will have to use <code>Promise.all</code> twice - once to retrieve the responses and again to retrieve the list of pokémon from the responses</p>
-<p>You can use <code>reduce</code> to reduce the list of pokémon into their total weight. To avoid using floating point numbers, the API returns the weight of a pokémon in hectogram(hg), which means you have to devide the result with 10 to get it in kilograms(kg) </p>
+<p>You can use <code>reduce</code> to reduce the list of pokémon into their total weight. To avoid using floating point numbers, the API returns the weight of a pokémon in hectogram(hg), which means you have to divide the result with 10 to get it in kilograms(kg).</p>
 <details>
 <summary>Display solution...</summary>
 
@@ -327,31 +383,152 @@ In particular, try this:
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
+<p>Give all functions names - even the callbacks that you would normally create as arrow functions. This will make it easier to follow them around.</p>
 <details>
 <summary>Display solution...</summary>
 
-```html
+```js
+// Example for experiment 1
+function foo() {
+    setTimeout(function fooTimer() {
+        bar()
+    }, 1000)
+}
 
+function bar() {
+    setTimeout(function barTimer() {
+        baz()
+    }, 1000)
+}
+
+function baz() {
+    setTimeout(function bazTimer() {
+        console.log("THE END!")
+    }, 1000)
+}
+
+foo()
+
+// Example for experiment 2
+function tightChain() {
+    setTimeout(function timer() {
+        tightChain()
+    }, 0)
+}
+
+tightChain()
+
+$.on("button", "click", function onClick() {
+    console.log("You clicked the button!")
+})
+
+// Example for experiment 3
+function chain() {
+    setTimeout(function timer() {
+        chain()
+    }, 6000)
+}
+
+function chain2() {
+    setTimeout(function timer2() {
+        chain2()
+    }, 1000)
+}
+
+chain()
+chain2()
 ```
 
 </details>
 </details>
 </blockquote>
 
-## 7.
+## 7. Building Promise.all
 
-Write your own `Promise` returning function using `XMLHttpRequest`, that can be used instead of `fetch` in the two previous exercises.
+Given an array of promises, `Promise.all` returns a promise that waits for all of the promises in the array to finish. It then succeeds, yielding an array of result values. If a promise in the array fails, the promise returned by `all` fails too, with the failure reason from the failing promise.
+
+Implement something like this yourself as a regular function called `Promise_all`.
+
+Remember that after a promise has succeeded or failed, it can’t succeed or fail again, and further calls to the functions that resolve it are ignored. This can simplify the way you handle failure of your promise.
+
+```js
+function Promise_all(promises) {
+    return new Promise((resolve, reject) => {
+        // Your code here.
+    })
+}
+
+// Test code.
+Promise_all([]).then(array => {
+    console.log("This should be []:", array)
+})
+function soon(val) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(val), Math.random() * 500)
+    })
+}
+Promise_all([soon(1), soon(2), soon(3)]).then(array => {
+    console.log("This should be [1, 2, 3]:", array)
+})
+Promise_all([soon(1), Promise.reject("X"), soon(3)])
+    .then(array => {
+        console.log("We should not get here")
+    })
+    .catch(error => {
+        if (error != "X") {
+            console.log("Unexpected failure:", error)
+        }
+    })
+```
 
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
+<p>The function passed to the <code>Promise</code> constructor will have to call <code>then</code> on each of the promises in the given array. When one of them succeeds, two things need to happen. The resulting value needs to be stored in the correct position of a result array, and we must check whether this was the last pending promise and finish our own promise if it was.</p>
+<p>The latter can be done with a counter that is initialized to the length of the input array and from which we subtract 1 every time a promise succeeds. When it reaches 0, we are done. Make sure you take into account the situation where the input array is empty (and thus no promise will ever resolve).</p>
+<p>Handling failure requires some thought but turns out to be extremely simple. Just pass the <code>reject</code> function of the wrapping promise to each of the promises in the array as a <code>catch</code> handler or as a second argument to <code>then</code> so that a failure in one of them triggers the rejection of the whole wrapper promise.</p>
 <details>
 <summary>Display solution...</summary>
 
-```html
+```js
+function Promise_all(promises) {
+    return new Promise((resolve, reject) => {
+        let results = []
+        let pending = promises.length
+        for (let i = 0; i < promises.length; i++) {
+            promises[i]
+                .then(result => {
+                    results[i] = result
+                    pending--
+                    if (pending == 0) resolve(results)
+                })
+                .catch(reject)
+        }
+        if (promises.length == 0) resolve(results)
+    })
+}
 
+// Test code.
+Promise_all([]).then(array => {
+    console.log("This should be []:", array)
+})
+function soon(val) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(val), Math.random() * 500)
+    })
+}
+Promise_all([soon(1), soon(2), soon(3)]).then(array => {
+    console.log("This should be [1, 2, 3]:", array)
+})
+Promise_all([soon(1), Promise.reject("X"), soon(3)])
+    .then(array => {
+        console.log("We should not get here")
+    })
+    .catch(error => {
+        if (error != "X") {
+            console.log("Unexpected failure:", error)
+        }
+    })
 ```
 
 </details>
