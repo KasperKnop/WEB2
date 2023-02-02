@@ -532,3 +532,5 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 </details>
 </details>
 </blockquote>
+
+<sub><sup><em>Exercise 7 is created by Marijn Haverbeke, [Eloquent JavaScript](https://eloquentjavascript.net/). Licensed under [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)</em><sup><sub>
