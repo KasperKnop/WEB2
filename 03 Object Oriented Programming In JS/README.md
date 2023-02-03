@@ -1,4 +1,4 @@
-# 03 Exercises: Object Oriented Programming In JS
+# 03 Exercises: Object-Oriented Programming In JS
 
 ## 1. Using Composition
 
