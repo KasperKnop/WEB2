@@ -350,7 +350,7 @@ In the `printTotalWeight` function below, use `Promise.all` to collect the resul
                 ])
                 const promises = responses.map(response => response.json())
                 const pokemonList = await Promise.all(promises)
-                const totalWeight = pokemonList.reduce((weightSum, pokemon) => weightSum + pokemon.weight, 0) / 10
+                const totalWeight = pokemonList.reduce((weightSum, { weight }) => weightSum + weight, 0) / 10
                 console.log(totalWeight) // → 92.4
             }
 
