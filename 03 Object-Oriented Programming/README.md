@@ -8,7 +8,7 @@ programming languages like Java & C#.
 
 Implement the Java class diagram below using factory functions in JavaScript.
 
-![Java Class Diagram](/03%20Object-Oriented%20Programming%20In%20JS/fig1.svg)
+![Java Class Diagram](/03%20Object-Oriented%20Programming/fig1.svg)
 
 ```js
 // Your code here.
@@ -142,7 +142,7 @@ console.log(createCircle({ center: createPoint(2, 2), radius: 4 }).getCenterX())
 
 Implement the Java class diagram below using factory functions in JavaScript.
 
-![Java Class Diagram](/03%20Object-Oriented%20Programming%20In%20JS/fig2.svg)
+![Java Class Diagram](/03%20Object-Oriented%20Programming/fig2.svg)
 
 ```js
 // Your code here.

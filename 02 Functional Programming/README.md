@@ -321,7 +321,7 @@ console.log(every([], n => n < 10))
 
 Write a function that computes the dominant writing direction in a string of text.
 
-For this task you will need to place the [`scripts.js`](https://raw.githubusercontent.com/KasperKnop/WEB2/main/02%20Functional%20Programming%20In%20JS/scripts.js) file next to your solution. This file contains a SCRIPTS constant with an array of objects, each of which describes a script:
+For this task you will need to place the [`scripts.js`](https://raw.githubusercontent.com/KasperKnop/WEB2/main/02%20Functional%20Programming/scripts.js) file next to your solution. This file contains a SCRIPTS constant with an array of objects, each of which describes a script:
 
 ```js
 {
