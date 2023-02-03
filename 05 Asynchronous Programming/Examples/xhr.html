@@ -13,7 +13,7 @@
         xhr.onload = () => {
             if (xhr.status == 200) {
                 const pokemon = JSON.parse(xhr.responseText)
-                const imageUrl = pokemon?.sprites?.front_default
+                const imageUrl = pokemon.sprites.front_default
                 document.querySelector("img").src = imageUrl
             }
         }
