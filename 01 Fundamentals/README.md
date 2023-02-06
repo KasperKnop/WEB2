@@ -2,7 +2,7 @@
 
 ## 1. Set Up Your Development Environment
 
-[Download](https://nodejs.org/en/) and install _Node.js_. This will allow you to run your JavaScript exercises without a browser. Later in the course we will see even more uses for Node.js.
+[Download](https://nodejs.org/en/) and install _Node.js_. This will allow you to run your JavaScript exercises without a browser. When installed, simply run `node yourExercise.js` from a CLI to run the program (note that your exercise has to be within the present working directory of the CLI for this to work). Later in the course we will see even more uses for Node.js.
 
 It is also recommended that you [download](https://code.visualstudio.com/download) and install _Visual Studio Code_. However, the choice of editor/IDE is entirely up to you. Here are some extensions, that you might consider using as well:
 
