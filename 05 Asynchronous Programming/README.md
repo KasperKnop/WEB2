@@ -2,7 +2,7 @@
 
 ## 1. A Childhood Callback
 
-[https://pokeapi.co/](https://pokeapi.co/) is a free RESTful Pokémon API, that serves data from the pokémon video game series.
+[Https://pokeapi.co/](https://pokeapi.co/) is a free RESTful Pokémon API, that serves data from the pokémon video game series.
 
 Using `XMLHttpRequest`, write a function that retrieves a pokémon and prints its name to the console. You have to make an HTML page to test the function in the browser, since `XmlHttpRequest` does not exist natively in Node.js.
 
