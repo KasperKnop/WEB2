@@ -230,11 +230,11 @@ The `some` method works with arrays to check if _any_ element passes a particula
 Use the `some` method inside the `checkPositive` function to check if any element in the array is positive. The function should return a Boolean value.
 
 ```js
-function checkPositive(arr) {
+function checkPositive(array) {
     // Your code here.
 }
 
-checkPositive([1, 2, 3, -4, 5])
+console.log(checkPositive([1, 2, 3, -4, 5]))
 // → true
 ```
 
@@ -258,7 +258,7 @@ function checkPositive(array) {
     return array.some(e => e > 0)
 }
 
-checkPositive([1, 2, 3, -4, 5])
+console.log(checkPositive([1, 2, 3, -4, 5]))
 // → true
 ```
 
