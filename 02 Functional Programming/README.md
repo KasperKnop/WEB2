@@ -366,11 +366,11 @@ console.log(oldestLivingScript(SCRIPTS))
 </details>
 </blockquote>
 
-## 9. The Multi-tool Of Array Transformations
+## 9. The Multi-Tool Of Array Transformations
 
 Use `filter` and `map` to write a function that takes an array of scripts as input and returns an array with the names of the scripts with a right to left directionality.
 
-As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array transformation can be achieved by applying it. Rewrite the function using `reduce` instead of `filter` and `map`.
+Since `reduce` can be used to express any array transformation, rewrite the function using it instead of `filter` and `map`.
 
 ```js
 require("./scripts.js")
