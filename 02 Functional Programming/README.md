@@ -180,10 +180,6 @@ console.log(letters)
 
 ## 5. From Title To URL
 
-As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that `map` and `filter` are special cases of reduce.
-
-However, this exercise you should try to solve without using any higher order functions.
-
 Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example `"Learn Functional Programmin In JavaScript"` would result in `.../learn-functional-programming-in-javascript`.
 
 Fill in the pure function, `urlSlug`, so it converts a string `title` and returns the hyphenated version for the URL:
@@ -192,6 +188,8 @@ Fill in the pure function, `urlSlug`, so it converts a string `title` and return
 -   The output is a string with the spaces between words replaced by a hyphen (`-`)
 -   The output should be all lower-cased letters
 -   The output should not have any spaces
+
+Are higher order functions useful here? Can you solve the exercise without them?
 
 ```js
 function urlSlug(title) {
@@ -206,7 +204,7 @@ console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone"))
 <details>
 <summary>Display hints...</summary>
 <p>Since we are passed a string primitive, which is immutable, we do not have to be concerned with input mutation.</p>
-<p>The string method <code>split</code> can be used to split a string into substrings and store them in an array. Conversely, the array method <code>join</code> creates a string concatenating all of the elements in an array.</p>
+<p>The string method <code>split</code> can be used to split a string into substrings and store them in an array. Conversely, the array method <code>join</code> creates a string concatenating all the elements in an array.</p>
 <details>
 <summary>Display solution...</summary>
 
@@ -317,11 +315,9 @@ console.log(every([], n => n < 10))
 </details>
 </blockquote>
 
-## 8. Dominant Writing Direction
+## 8. Script Transformations
 
-Write a function that computes the dominant writing direction in a string of text.
-
-For this task you will need to place the [`scripts.js`](https://raw.githubusercontent.com/KasperKnop/WEB2/main/02%20Functional%20Programming/scripts.js) file next to your solution. This file contains a SCRIPTS constant with an array of objects, each of which describes a script:
+For the next exercises you will need to place the [`scripts.js`](https://raw.githubusercontent.com/KasperKnop/WEB2/main/02%20Functional%20Programming/scripts.js) file next to your solutions and run your solutions using _node.js_. This file contains a SCRIPTS constant with an array of objects, each of which describes a script:
 
 ```js
 {
@@ -334,7 +330,96 @@ For this task you will need to place the [`scripts.js`](https://raw.githubuserco
 }
 ```
 
-As you can see, each script object has a `direction` property that can be `"ltr"` (left to right), `"rtl"` (right to left), or `"ttb"` (top to bottom).
+Write a function that takes an array of scripts as input and returns the oldest script that is not dead.
+
+```js
+require("./scripts.js")
+
+function oldestLivingScript(scripts) {
+    // Your code here.
+}
+
+console.log(oldestLivingScript(SCRIPTS))
+// → [ "Adlam", "Arabic", "Imperial Aramaic", ... ]
+```
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+<p>As you can see, each script object has a <code>year</code> property and a <code>living</code> property that you can use. Finding the oldest script can be done with <code>reduce</code>.</p>
+
+<details>
+<summary>Display solution...</summary>
+
+```js
+require("./scripts.js")
+
+function oldestLivingScript(scripts) {
+    return scripts.filter(s => s.living).reduce((res, s) => (res.year < s.year ? res : s))
+}
+
+console.log(oldestLivingScript(SCRIPTS))
+// → [ "Adlam", "Arabic", "Imperial Aramaic", ... ]
+```
+
+</details>
+</details>
+</blockquote>
+
+## 9. The Multi-tool Of Array Transformations
+
+Use `filter` and `map` to write a function that takes an array of scripts as input and returns an array with the names of the scripts with a right to left directionality.
+
+As we have learned, `reduce`, is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array transformation can be achieved by applying it. Rewrite the function using `reduce` instead of `filter` and `map`.
+
+```js
+require("./scripts.js")
+
+function rtlScriptNames(scripts) {
+    // Your code here.
+}
+
+console.log(rtlScriptNames(SCRIPTS))
+// → [ "Adlam", "Arabic", "Imperial Aramaic", ... ]
+```
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+
+<p>As you can see, each script object has a <code>direction</code> property that can be <code>"ltr"</code> (left to right), <code>"rtl"</code> (right to left), or <code>"ttb"</code> (top to bottom).</p>
+<p>Here is the function using filter and map:</p>
+
+```js
+function rtlScriptNames(scripts) {
+    const rtlScripts = scripts.filter(s => s.direction === "rtl")
+    return rtlScripts.map(s => s.name)
+}
+```
+
+<p>Remember that the <code>reduce</code> function takes an optional second argument - the initial value of the accumulator. Since both <code>filter</code> and <code>map</code> produce an array, your <code>reduce</code> functions should do the same. Array literals combined with the spread syntax might come in handy here.</p>
+
+<details>
+<summary>Display solution...</summary>
+
+```js
+require("./scripts.js")
+
+function rtlScriptNames(scripts) {
+    const rtlScripts = scripts.reduce((res, s) => (s.direction === "rtl" ? [...res, s] : [...res]), [])
+    return rtlScripts.reduce((res, s) => [...res, s.name], [])
+}
+
+console.log(rtlScriptNames(SCRIPTS)) // → [ "Adlam", "Arabic", "Imperial Aramaic", ... ]
+```
+
+</details>
+</details>
+</blockquote>
+
+## 10. Dominant Writing Direction
+
+Write a function that computes the dominant writing direction in a string of text.
 
 The dominant direction is the direction of a majority of the characters that have a script associated with them. The `characterScript` and `countBy` functions defined in the code below are probably useful here.
 
