@@ -4,7 +4,7 @@
 
 Create a pure function that returns a new array containing the squares of only the positive integers when an array of real numbers is passed to it.
 
-Your function should make use of `map` and `filter` instead of `for` or `while` loops or `forEach`.
+Your function should make use of `map` and `filter` instead of any `for` or `while` loops or `forEach`.
 
 ```js
 function squareList(array) {
