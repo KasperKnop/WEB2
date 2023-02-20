@@ -111,7 +111,7 @@ function createCircle({ x, y, center = createPoint(x, y), radius }) {
         getCenterX: () => center.getX(),
         getCenterY: () => center.getY(),
         getRadius: () => radius,
-        moveCenterTo: (newX, newY) => center.moveTo(newX, newY),
+        moveCenterTo: (x, y) => center.moveTo(x, y),
         toString: () => `Circle(Center: ${center.toString()}, Radius: ${radius})`,
     }
 }
