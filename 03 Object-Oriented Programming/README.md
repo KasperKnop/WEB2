@@ -1,4 +1,4 @@
-# 003 Exercises: Object-Oriented Programming
+# 03 Exercises: Object-Oriented Programming
 
 ## 1. Using Composition
 
