@@ -4,7 +4,7 @@
 
 Create a pure function that returns a new array containing the squares of only the positive integers when an array of real numbers is passed to it.
 
-Your function should not use any kind of `for` or `while` loops or the `forEach` method, but you may use any combination of `map`, `filter` and `reduce`.
+Your function should make use of `map` and `filter` instead of any `for` or `while` loops or `forEach`.
 
 ```js
 function squareList(array) {
@@ -40,7 +40,7 @@ console.log(squaredIntegers)
 
 ## 2. Flattening
 
-Use the `reduce` method in combination with the `concat` method to “flatten” an array of arrays into a single array that has all the elements of the original arrays.
+Use the `reduce` method to “flatten” an array of arrays into a single array that has all the elements of the original arrays.
 
 ```js
 let arrays = [[1, 2, 3], [4, 5], [6]]
@@ -52,13 +52,14 @@ let arrays = [[1, 2, 3], [4, 5], [6]]
 <details>
 <summary>Display hints...</summary>
 <p>Remember that <code>reduce</code> produces a single value, so the second argument to <code>reduce</code> - the initial value - should be an empty array.</p>
+<p>For merging arrays you can either use the <code>concat</code> method or the spread syntax combined with an array literal. 
 <details>
 <summary>Display solution...</summary>
 
 ```js
 let arrays = [[1, 2, 3], [4, 5], [6]]
 
-console.log(arrays.reduce((flat, current) => flat.concat(current), []))
+console.log(arrays.reduce((flat, current) => [...flat, ...current], []))
 // → [1, 2, 3, 4, 5, 6]
 ```
 
@@ -157,7 +158,7 @@ console.log(letters)
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>Since we are writing a pure function we must avoid the side effects caused by <code>sort</code>. Start by copying the array. A simple way to do this is by using the spread syntax combined with an array literal.</p>
+<p>Since we are writing a pure function we must avoid the side effects caused by <code>sort</code>. This means that we can only call <code>sort</code> on a copy of the array that is passed to the function.</p>
 <details>
 <summary>Display solution...</summary>
 
@@ -406,8 +407,7 @@ function rtlScriptNames(scripts) {
 require("./scripts.js")
 
 function rtlScriptNames(scripts) {
-    const rtlScripts = scripts.reduce((res, s) => (s.direction === "rtl" ? [...res, s] : [...res]), [])
-    return rtlScripts.reduce((res, s) => [...res, s.name], [])
+    return scripts.reduce((res, s) => (s.direction === "rtl" ? [...res, s.name] : [...res]), [])
 }
 
 console.log(rtlScriptNames(SCRIPTS)) // → [ "Adlam", "Arabic", "Imperial Aramaic", ... ]
