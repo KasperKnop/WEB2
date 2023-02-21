@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Losing Context</title>
+</head>
+
+<body>
+    <button>ORDER</button>
+    <script>
+        const button = document.querySelector("button")
+
+        const order = {
+            amount: 500,
+            item: "Game",
+            printOrder() {
+                console.log(this.item + ": " + this.amount + "kr")
+            }
+        }
+        // Use closures or bind to prevent losing context
+        button.addEventListener("click", () => order.printOrder())
+
+    </script>
+</body>
+
+</html>
