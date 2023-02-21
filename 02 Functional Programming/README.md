@@ -1,4 +1,4 @@
-# 02 Exercises: Functional Programming
+# 002 Exercises: Functional Programming
 
 ## 1. Squaring Integers
 
