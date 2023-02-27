@@ -4,7 +4,7 @@
 
 [PokéAPI](https://pokeapi.co/) is a free RESTful Pokémon API, that serves data from the pokémon video game series.
 
-Using `XMLHttpRequest`, write a function that retrieves a pokémon and prints its name to the console. You have to make an HTML page to test the function in the browser, since `XmlHttpRequest` does not exist natively in Node.js.
+Using `XMLHttpRequest`, write a function that retrieves a pokémon and prints its name to the console. You have to make an HTML page to test the function in the browser, since `XmlHttpRequest` does not exist natively in _Node.js_.
 
 Extend the page to allow the user to search for a pokémon by id or name through an input field and a search button. The page should display the name, id, type(s) and an image (sprite) of the searched pokémon, as well as the status of the request.
 
