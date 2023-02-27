@@ -18,7 +18,7 @@ In the following example, the first player (X) wins the game in seven steps:
 
 There are no requirements for the styling of the games.
 
-Thoroughly test your games, verifying that they have identical behavior and work as intended. Submit the assignment as **two html files** (oo.html & fun.html) on itslearning, alone or in groups of 2-4. The assignment is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
+Thoroughly test your games, verifying that they have identical behavior and work as intended. Submit the assignment as **two html files** (oo.html & fun.html with embedded script and style tags) on itslearning, alone or in groups of 2-4. The assignment is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
 
 **Evaluation criteria:**
 
@@ -32,7 +32,7 @@ Thoroughly test your games, verifying that they have identical behavior and work
 <summary>Display hints...</summary>
 <p>It is not advised to create the two games in isolation, as their implementations have significant overlap.</p>
 <p>In the object-oriented version, implement a Game class (or factory function) with methods for rendering the game, making a move, reading the status of the game, etc. Consider creating a Board class that the Game class can use to manage the board, if you find your Game class doing too much.</p>
-<p>In the functional version, create a data structure for the game, and several functions for rendering the game, making a move, reading the status of the game, etc, which take the data structure as a parameter. You should make use of functional programming concepts, such as pure functions, higher-order functions and immutability where appropriate, but you must of course still imperatively manipulate the DOM and listen for player input.</p>
+<p>In the functional version, create a data structure for the game, and several functions for rendering the game, making a move, reading the status of the game, etc, which uses the data structure as a parameter. You should make use of functional programming concepts, such as pure functions, higher-order functions and immutability where appropriate, but you must of course still imperatively manipulate the DOM and listen for player input.</p>
 <p>One significant difference between the two versions is the implementation of making a move. In the object-oriented version, the move method should change the state of the game. In the functional version, the move function should return the new state of the game.</p>
 </details>
 </blockquote>
