@@ -31,8 +31,8 @@ Thoroughly test your games, verifying that they have identical behavior and work
 <details>
 <summary>Display hints...</summary>
 <p>It is not advised to create the two games in isolation, as their implementations have significant overlap.</p>
-<p>In the object-oriented version, implement a Game class (or factory function) with methods for rendering the game, making a move, reading the status of the game, etc. Consider creating a Board class that the Game class can use to manage the board, if you find your Game class doing too much.</p>
+<p>In the object-oriented version, implement a <code>Game</code> class (or factory function) with methods for rendering the game, making a move, reading the status of the game, etc. Consider creating a <code>Board</code> class that the <code>Game</code> class can use to manage the board, if you find your <code>Game</code> class doing too much.</p>
 <p>In the functional version, create a data structure for the game, and several functions for rendering the game, making a move, reading the status of the game, etc, which uses the data structure as a parameter. You should make use of functional programming concepts, such as pure functions, higher-order functions and immutability where appropriate, but you must of course still imperatively manipulate the DOM and listen for player input.</p>
-<p>One significant difference between the two versions is the implementation of making a move. In the object-oriented version, the move method should change the state of the game. In the functional version, the move function should return the new state of the game.</p>
+<p>One significant difference between the two versions is the implementation of making a move. In the object-oriented version, the <code>move</code> method should change the state of the game. In the functional version, the <code>move</code> function should return the new state of the game.</p>
 </details>
 </blockquote>
