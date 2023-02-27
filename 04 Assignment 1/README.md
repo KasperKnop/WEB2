@@ -18,8 +18,6 @@ In the following example, the first player (X) wins the game in seven steps:
 
 There are no requirements for the styling of the games.
 
-Feel free to add extra features, e.g. an AI opponent or a score tracker.
-
 Thoroughly test your games, verifying that they have identical behavior and work as intended. Submit the assignment as **two html files** (oo.html & fun.html) on itslearning. Create the assignment alone or in groups of 2-4. The assignment is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
 
 **Evaluation criteria:**
