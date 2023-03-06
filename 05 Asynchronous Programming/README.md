@@ -130,7 +130,7 @@ Implement the previous exercise using promises with `fetch` and `.then`.
                         document.querySelector("#type").innerText = secondaryType ? `${primaryType}/${secondaryType}` : primaryType
                     })
                     .catch(err => {
-                        document.querySelector("#message").innerText = message
+                        document.querySelector("#message").innerText = err
                         document.querySelector("#id").innerText = ""
                         document.querySelector("#name").innerText = ""
                         document.querySelector("img").src = ""
