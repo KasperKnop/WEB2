@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Async/Await Example</title>
+</head>
+
+<body>
+    <img>
+    <script type="module">
+        try {
+            const url = "https://pokeapi.co/api/v2/pokemon/wartortle"
+            const response = await fetch(url)
+            if (!response.ok) throw new Error("Network response was not OK")
+            let pokemon = await response.json()
+            const imageUrl = pokemon.sprites.front_default
+            document.querySelector("img").src = imageUrl
+        } catch (err) {
+            console.log(err)
+        }
+    </script>
+</body>
