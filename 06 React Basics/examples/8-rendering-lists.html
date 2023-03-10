@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>Simple React Application</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    function PokemonList() {
+      const pokemon = [{ name: "Bulbasaur", id: 1 }, { name: "charmander", id: 4 }, { name: "squirtle", id: 7 }]
+      const listItems = pokemon.map(p => <li key={p.id}>{p.name}</li>)
+      return <ul>{listItems}</ul>
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<PokemonList />)
+  </script>
+</body>
+
+</html>

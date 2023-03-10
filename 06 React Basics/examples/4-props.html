@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>Simple React Application</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    function Parent() {
+      let someText = "Hello!"
+      return (
+        <>
+          <h1>Parent</h1>
+          <Child text={someText} />
+        </>
+      )
+    }
+
+    function Child({ text }) {
+      return <h1>{text}</h1>
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<Parent />)
+  </script>
+</body>
+
+</html>
