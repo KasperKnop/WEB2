@@ -10,7 +10,6 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-
     function PokemonList() {
       const pokemon = [{ name: "Bulbasaur", id: 1 }, { name: "charmander", id: 4 }, { name: "squirtle", id: 7 }]
       const listItems = pokemon.map(p => <li key={p.id}>{p.name}</li>)
