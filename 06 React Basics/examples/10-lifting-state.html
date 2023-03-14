@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Simple React Application</title>
+    <title>Lifting State</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -10,9 +10,11 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
+
         function MyApp() {
             let [count, setCount] = React.useState(0)
             const handleCount = () => setCount(count + 1)
+
             return (
                 <>
                     <MyButton count={count} onClick={handleCount} />
