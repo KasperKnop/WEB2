@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client"
 import Root from "./routes/Root"
 import AboutMe from "./routes/AboutMe"
 import FrontPage from "./routes/FrontPage"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { RouterProvider, createHashRouter } from "react-router-dom"
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <Root />,
