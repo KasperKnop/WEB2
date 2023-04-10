@@ -281,69 +281,78 @@ it("works with negativ shift", () => {
 
 ## 7. React Testing Library
 
+Use _Create React App_ and _React Testing Library_ to write a test for a `Counter` component containing a heading with a count and two buttons - one to increment the count and one to decrement the count. The test should verify that both buttons work as intended. Write the code to pass the test.
+
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
+<p>Remember - arrange, act and assert! You can render the component with the <code>render</code> function, fire click events with <code>fireEvent.click</code> and create assertions using <code>expect</code> together with <code>toHaveTextContent</code>.</p> You can find elements using the <code>getByText</code> and <code>getByRole</code> functions on the screen object.
+<p>Refer to <a href="https://testing-library.com/docs/react-testing-library/cheatsheet">this cheat sheet</a>, if you need more help setting up the component test.</p>
 <details>
 <summary>Display solution...</summary>
 
 ```js
+// Counter.js
+import { useState } from "react"
 
+export default function Counter() {
+    const [count, setCount] = useState(0)
+
+    return (
+        <>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <button onClick={() => setCount(count - 1)}>Decrement</button>
+        </>
+    )
+}
+
+// Counter.test.js
+import { render, screen, fireEvent } from "@testing-library/react"
+import Counter from "./Counter"
+
+it("increments and decrements count", () => {
+    render(<Counter />)
+
+    const incrementButton = screen.getByText("Increment")
+    const decrementButton = screen.getByText("Decrement")
+    const count = screen.getByRole("heading")
+
+    fireEvent.click(incrementButton)
+    expect(count).toHaveTextContent("Count: 1")
+
+    fireEvent.click(decrementButton)
+    expect(count).toHaveTextContent("Count: 0")
+})
 ```
 
 </details>
 </details>
 </blockquote>
 
-## 8. Mocking
+## 8. Performance Testing
+
+Experiment with _Lighthouse_ reports for various web applications. What are the lowest and higest scores you can find for performance, accessibility, best practices and SEO? How do the applications fair in metrics such as First Contentful Paint, Largest Contentful Paint, Time to Interactive and Cumulative Layout Shift? What are their opportunities for improvement?
 
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
-<details>
-<summary>Display solution...</summary>
-
-```js
-
-```
-
-</details>
+<p><em>Lighthouse</em> comes preinstalled with the <em>Chrome</em> and <em>Edge</em> browsers and is available in the developer tools.</p>
+<p>You can learn more about <em>Lighthouse</em> on the <a href="https://developer.chrome.com/docs/lighthouse/overview/">official website</a>, from which it is also possible to generate Lighthouse tests directly.</p>
 </details>
 </blockquote>
 
-## 9. Performance Testing
+## 9. Testing Your Previous Work
+
+Test your previous assignments and exercises! Write tests using Jest and React Testing Library and generate _Lighthouse_ reports to find opportunities for improvements.
 
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p></p>
-<details>
-<summary>Display solution...</summary>
-
-```js
-
-```
-
-</details>
-</details>
-</blockquote>
-
-## 10. Testing Assignments
-
-<blockquote>
-<details>
-<summary>Display hints...</summary>
-<p></p>
-<details>
-<summary>Display solution...</summary>
-
-```js
-
-```
-
-</details>
+<p>Remember - the more your tests resemble the way your software is used, the more confidence they can give you.</p>
+<p>Writing tests for your tic-tac-toe game is good practice. If you have created a lot of pure functions these are straight forward to test!</p>
+<p>If you are testing your Pokedex, it might be helpful to look into the <a href="https://testing-library.com/docs/dom-testing-library/api-async">async methods</a>of React Testing Library.</p>
+<p>Notice that we are doing things backwards in this exercise - it's good advice to apply <em>test driven development</em> - writing your tests before you write your code!</p>
 </details>
 </blockquote>
 
