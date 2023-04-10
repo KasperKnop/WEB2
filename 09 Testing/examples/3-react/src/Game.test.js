@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import Game from "./Game"
 
-test("X wins with diagonal line", () => {
+it("X wins with diagonal line", () => {
     const { container } = render(<Game />)
     const squares = container.querySelectorAll(".square")
 
