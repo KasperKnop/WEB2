@@ -25,7 +25,7 @@ npm i -D @babel/preset-env
 { "presets": ["@babel/preset-env"] }
 ```
 
-You can now run all `test.js` files with `npm run test`. If you are using _Create React App_, everything will already be set up for you.
+You can now run all `test.js` files with `npm test`. If you are using _Create React App_, everything will already be set up for you.
 
 ## 2. Capitalizing a String
 
