@@ -2,7 +2,7 @@
 
 ## 1. Set Up Your Testing Environment
 
-For the first exercises we will only be using _Jest_. To use _Jest_, run:
+For the first exercises you will only be using _Jest_. To use _Jest_, run:
 
 ```
 npm init
