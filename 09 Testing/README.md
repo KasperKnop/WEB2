@@ -351,7 +351,7 @@ Test your previous assignments and exercises! Write tests using Jest and React T
 <summary>Display hints...</summary>
 <p>Remember - the more your tests resemble the way your software is used, the more confidence they can give you.</p>
 <p>Writing tests for your tic-tac-toe game is good practice. If you have created a lot of pure functions these are straight forward to test!</p>
-<p>If you are testing your Pokedex, it might be helpful to look into the <a href="https://testing-library.com/docs/dom-testing-library/api-async">async methods</a> of React Testing Library.</p>
+<p>If you are testing your Pokedex, it might be helpful to look into the <a href="https://testing-library.com/docs/dom-testing-library/api-async">async methods</a> of <em>React Testing Library</em>.</p>
 <p>Notice that we are doing things backwards in this exercise - it's good advice to apply <em>test driven development</em> - writing your tests before you write your code!</p>
 </details>
 </blockquote>
