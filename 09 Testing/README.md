@@ -9,21 +9,33 @@ npm init
 npm i -D jest
 ```
 
-Make sure `test` property of `scripts` in the `package.json` executes `jest`.
+Make sure the `test` property of `scripts` in the `package.json` executes `jest`:
+
+```json
+{
+    "scripts": {
+        "test": "jest"
+    }
+}
+```
 
 By default, the current version of _Jest_ will not recognize ES6 import statements. If you want to use ES6 modules, you must do the following:
 
 1. Install the @babel/preset-env package:
 
-```
+````
+
 npm i -D @babel/preset-env
+
 ```
 
 2. Create a ".babelrc" file in the root of your project with the following code:
 
 ```
+
 { "presets": ["@babel/preset-env"] }
-```
+
+````
 
 You can now run all `test.js` files with `npm test`. If you are using _Create React App_, everything will already be set up for you.
 
