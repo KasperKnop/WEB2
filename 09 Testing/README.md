@@ -19,7 +19,7 @@ By default, the current version of _Jest_ will not recognize ES6 import statemen
 npm i -D @babel/preset-env
 ```
 
-2. npm i -D @babel/preset-env
+2. Create a ".babelrc" file in the root of your project with the following code:
 
 ```
 { "presets": ["@babel/preset-env"] }
