@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Authentication Example</title>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <input type="text" id="username" />
+    <input type="password" id="password" />
+    <button onclick="login()">Login</button>
+    <hr />
+    <button onclick="getData()">Get Protected Data</button>
+    <script>
+        async function login() {
+            const username = document.querySelector("#username").value
+            const password = document.querySelector("#password").value
+            const response = await fetch("http://localhost:3000/login", {
+                headers: { "Content-Type": "application/json" },
+                method: "POST",
+                body: JSON.stringify({ username, password }),
+            })
+            if (response.ok) {
+                const authString = await response.headers.get("Authorization")
+                const token = authString.split(" ")[1]
+                localStorage.setItem("jwt", token)
+                alert("Login successful!")
+            } else {
+                alert("Login failed!")
+            }
+        }
+
+        async function getData() {
+            const token = localStorage.getItem("jwt")
+            const response = await fetch("http://localhost:3000/protected", {
+                headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+            })
+            if (response.ok) {
+                const data = await response.json()
+                alert(JSON.stringify(data))
+            } else {
+                alert("Error retrieving data!")
+            }
+        }
+    </script>
+</body>
+
+</html>

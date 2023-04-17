@@ -1,0 +1,2 @@
+# .env should also be in .gitignore, but is left out for demonstration purposes!
+/node_modules
