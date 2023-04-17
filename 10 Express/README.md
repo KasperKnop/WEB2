@@ -215,7 +215,9 @@ async function createUser(username, password) {
 }
 
 app.listen(3000)
+```
 
+```js
 //.env
 JWT_SECRET="p2r5u8x/A?D(G+KbPeShVmYq3t6v9y$B"
 ```
@@ -277,10 +279,12 @@ function requireAuth(req, res, next) {
 
 Create a small single page application that can be used to login and access the protected data on your web server.
 
+You do not have to implement the sign up feature as well - create a dummy account or keep using your HTTP client for that.
+
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>When retrieving the token from the login, you can store the token in localstorage:</p>
+<p>When retrieving the token from the login, you can store the token in local storage:</p>
 
 ```js
 const authString = await response.headers.get("Authorization")

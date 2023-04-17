@@ -314,7 +314,9 @@ export default function Counter() {
         </>
     )
 }
+```
 
+```js
 // Counter.test.js
 import { render, screen, fireEvent } from "@testing-library/react"
 import Counter from "./Counter"
