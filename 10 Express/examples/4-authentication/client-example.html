@@ -24,7 +24,7 @@
             })
             if (response.ok) {
                 const authString = await response.headers.get("Authorization")
-                const token = authString.split(" ")[1]
+                const token = authString?.split(" ")[1]
                 localStorage.setItem("jwt", token)
                 alert("Login successful!")
             } else {

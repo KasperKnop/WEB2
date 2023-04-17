@@ -241,7 +241,7 @@ app.get("/protected", requireAuth, (req, res) => {
 <p>You should send the token using the authorization header. It should be in the format "Bearer token", which allows you to extract it by converting the string to an array:
 
 ```js
-const token = req.headers.authorization.split(" ")[1]
+const token = req.headers.authorization?.split(" ")[1]
 ```
 
 </p>
@@ -256,7 +256,7 @@ app.get("/protected", requireAuth, (req, res) => {
 })
 
 function requireAuth(req, res, next) {
-    const token = req.headers.authorization.split(" ")[1]
+    const token = req.headers.authorization?.split(" ")[1]
     if (!token) return res.status(401).send({ error: "Unauthorized" })
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -284,7 +284,7 @@ You do not have to implement the sign up feature as well - create a dummy accoun
 
 ```js
 const authString = await response.headers.get("Authorization")
-const token = authString.split(" ")[1]
+const token = authString?.split(" ")[1]
 localStorage.setItem("jwt", token)
 ```
 
@@ -344,7 +344,7 @@ app.use(express.urlencoded({ extended: false }))
                 })
                 if (response.ok) {
                     const authString = await response.headers.get("Authorization")
-                    const token = authString.split(" ")[1]
+                    const token = authString?.split(" ")[1]
                     localStorage.setItem("jwt", token)
                     alert("Login successful!")
                 } else {
