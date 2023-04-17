@@ -102,7 +102,7 @@ You do not have to persist the account details - keeping them in memory while th
 <summary>Display hints...</summary>
 <p>You should use a POST request when you are sending data in the body.</p>
 <p>Make sure that you have set up a middleware that parses the request body. You can do this using <code>app.use(express.json())</code>.</p>
-<p>Never store a cleartext password. Make sure that you hash and salt it first. This can be done with <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>.</p>
+<p>Never store a cleartext password. Make sure that you salt and hash it first. This can be done with <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>.</p>
 <details>
 <summary>Display solution...</summary>
 
@@ -149,8 +149,8 @@ Create an endpoint to login in with your newly created account. The endpoint sho
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>You can generate a signed JWT using the <a href=”https://www.npmjs.com/package/jsonwebtoken”>jsonwebtoken</a> npm package.</p>
-<p>The secret used for signing should be stored as an environmental variable for added security. The <a href=”https://www.npmjs.com/package/dotenv”>dotenv</a> package can help with that.</p>
+<p>You can generate a signed JWT using the <a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a> npm package.</p>
+<p>The secret used for signing should be stored as an environmental variable for added security. The <a href="https://www.npmjs.com/package/dotenv">dotenv</a> package can help with that.</p>
 <p>It is good practice to store the token in the authorization header:
 
 ```js
@@ -240,7 +240,7 @@ app.get("/protected", requireAuth, (req, res) => {
 ```
 
 </p>
-<p>You should send the token using the authorization header. It should be in the format “Bearer token”, which allows you to extract it by converting the string to an array:
+<p>You should send the token using the authorization header. It should be in the format "Bearer token", which allows you to extract it by converting the string to an array:
 
 ```js
 const token = req.headers.authorization.split(" ")[1]
