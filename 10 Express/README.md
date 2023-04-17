@@ -20,7 +20,7 @@ import express from "express"
 const app = express()
 
 app.get("/", (req, res) => {
-  res.send("Hello, World!")
+    res.send("Hello, World!")
 })
 
 app.listen(3000)
@@ -37,7 +37,7 @@ Create your own Pokemon API where the user can retrieve a pokemon by id. You can
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>You can parameterize URL segments using semicolons, e.g.: <code>/:id</code>. The captured parameters are populated in the <code>req.params</code> object.</p>
+<p>You can parameterize URL segments using colons, e.g.: <code>/:id</code>. The captured parameters are populated in the <code>req.params</code> object.</p>
 <p>Remember to specify appropriate HTTP status codes for when a pokemon with a given id is not found.</p>
 <details>
 <summary>Display solution...</summary>
@@ -49,10 +49,10 @@ import { POKEMON } from "./Pokemon.js"
 const app = express()
 
 app.get("/:id", (req, res) => {
-  const reqId = parseInt(req.params.id)
-  const pokemon = POKEMON.find((p) => p.id === reqId)
-  if (pokemon) res.send(pokemon)
-  else res.status(404).send({ msg: "No pokemon with the id of " + reqId })
+    const reqId = parseInt(req.params.id)
+    const pokemon = POKEMON.find(p => p.id === reqId)
+    if (pokemon) res.send(pokemon)
+    else res.status(404).send({ msg: "No pokemon with the id of " + reqId })
 })
 
 app.listen(3000)
@@ -77,12 +77,8 @@ Introduce a logging middleware in your PokeAPI. It should log the time that a sp
 
 ```js
 function logger(req, res, next) {
-  console.log(
-    `${req.protocol}://${req.get("host")}${
-      req.originalUrl
-    }: ${new Date().toLocaleTimeString()}`
-  )
-  next()
+    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}: ${new Date().toLocaleTimeString()}`)
+    next()
 }
 
 app.use(logger)
@@ -116,23 +112,23 @@ app.use(express.json())
 const users = []
 
 app.post("/signup", async (req, res) => {
-  const { username, password } = req.body
-  try {
-    await createUser(username, password)
-    res.send({ message: "User created!" })
-  } catch (err) {
-    res.status(500).send({ error: "Error signing up" })
-  }
+    const { username, password } = req.body
+    try {
+        await createUser(username, password)
+        res.send({ message: "User created!" })
+    } catch (err) {
+        res.status(500).send({ error: "Error signing up" })
+    }
 })
 
 async function createUser(username, password) {
-  const existingUser = users.find((user) => user.username === username)
-  if (existingUser) throw new Error("Name taken!")
+    const existingUser = users.find(user => user.username === username)
+    if (existingUser) throw new Error("Name taken!")
 
-  const hashedPassword = await bcrypt.hash(password, 10)
-  const newUser = { username, password: hashedPassword }
-  users.push(newUser)
-  return newUser
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const newUser = { username, password: hashedPassword }
+    users.push(newUser)
+    return newUser
 }
 
 app.listen(3000)
@@ -174,44 +170,44 @@ app.use(express.json())
 const users = []
 
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body
-  try {
-    const user = await authenticateUser(username, password)
-    const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: "1h" })
-    res.set("Authorization", `Bearer ${token}`).sendStatus(200)
-  } catch (err) {
-    res.status(401).send({ error: "Unauthorized" })
-  }
+    const { username, password } = req.body
+    try {
+        const user = await authenticateUser(username, password)
+        const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: "1h" })
+        res.set("Authorization", `Bearer ${token}`).sendStatus(200)
+    } catch (err) {
+        res.status(401).send({ error: "Unauthorized" })
+    }
 })
 
 async function authenticateUser(username, password) {
-  const user = users.find((user) => user.username === username)
-  if (!user) throw new Error("Invalid credentials")
+    const user = users.find(user => user.username === username)
+    if (!user) throw new Error("Invalid credentials")
 
-  const passwordMatch = await bcrypt.compare(password, user.password)
-  if (!passwordMatch) throw new Error("Invalid credentials")
+    const passwordMatch = await bcrypt.compare(password, user.password)
+    if (!passwordMatch) throw new Error("Invalid credentials")
 
-  return { username: user.username }
+    return { username: user.username }
 }
 
 app.post("/signup", async (req, res) => {
-  const { username, password } = req.body
-  try {
-    await createUser(username, password)
-    res.send({ message: "User created!" })
-  } catch (err) {
-    res.status(500).send({ error: "Error signing up" })
-  }
+    const { username, password } = req.body
+    try {
+        await createUser(username, password)
+        res.send({ message: "User created!" })
+    } catch (err) {
+        res.status(500).send({ error: "Error signing up" })
+    }
 })
 
 async function createUser(username, password) {
-  const existingUser = users.find((user) => user.username === username)
-  if (existingUser) throw new Error("Name taken!")
+    const existingUser = users.find(user => user.username === username)
+    if (existingUser) throw new Error("Name taken!")
 
-  const hashedPassword = await bcrypt.hash(password, 10)
-  const newUser = { username, password: hashedPassword }
-  users.push(newUser)
-  return newUser
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const newUser = { username, password: hashedPassword }
+    users.push(newUser)
+    return newUser
 }
 
 app.listen(3000)
@@ -219,7 +215,7 @@ app.listen(3000)
 
 ```js
 //.env
-JWT_SECRET="p2r5u8x/A?D(G+KbPeShVmYq3t6v9y$B"
+JWT_SECRET = "p2r5u8x/A?D(G+KbPeShVmYq3t6v9y$B"
 ```
 
 </details>
@@ -237,7 +233,7 @@ Create an endpoint that is protected by JWT authentication middleware.
 
 ```js
 app.get("/protected", requireAuth, (req, res) => {
-  //Your protected route
+    //Your protected route
 })
 ```
 
@@ -256,18 +252,18 @@ const token = req.headers.authorization.split(" ")[1]
 
 ```js
 app.get("/protected", requireAuth, (req, res) => {
-  res.send({ message: `Hello ${req.user.username}! This route is protected.` })
+    res.send({ message: `Hello ${req.user.username}! This route is protected.` })
 })
 
 function requireAuth(req, res, next) {
-  const token = req.headers.authorization.split(" ")[1]
-  if (!token) return res.status(401).send({ error: "Unauthorized" })
+    const token = req.headers.authorization.split(" ")[1]
+    if (!token) return res.status(401).send({ error: "Unauthorized" })
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(401).send({ error: "Unauthorized" })
-    req.user = decoded
-    next()
-  })
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) return res.status(401).send({ error: "Unauthorized" })
+        req.user = decoded
+        next()
+    })
 }
 ```
 
@@ -296,9 +292,8 @@ localStorage.setItem("jwt", token)
 
 ```js
 fetch("protected-endpoint", {
-        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+    headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
 })
-
 ```
 
 </p>
@@ -311,6 +306,7 @@ app.use(cors({ exposedHeaders: "Authorization" }))
 ```
 
 In a production environment you should choose who CORS is enabled for instead of enabeling it for everyone.</p>
+
 <p>If you are sending form data, you will also have to create middleware that parses it:
 
 ```js
@@ -325,53 +321,51 @@ app.use(express.urlencoded({ extended: false }))
 ```html
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Authentication Example</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Authentication Example</title>
-</head>
-
-<body>
-    <h2>Login</h2>
-    <input type="text" id="username" />
-    <input type="password" id="password" />
-    <button onclick="login()">Login</button>
-    <hr />
-    <button onclick="getData()">Get Protected Data</button>
-    <script>
-        async function login() {
-            const username = document.querySelector("#username").value
-            const password = document.querySelector("#password").value
-            const response = await fetch("http://localhost:3000/login", {
-                headers: { "Content-Type": "application/json" },
-                method: "POST",
-                body: JSON.stringify({ username, password }),
-            })
-            if (response.ok) {
-                const authString = await response.headers.get("Authorization")
-                const token = authString.split(" ")[1]
-                localStorage.setItem("jwt", token)
-                alert("Login successful!")
-            } else {
-                alert("Login failed!")
+    <body>
+        <h2>Login</h2>
+        <input type="text" id="username" />
+        <input type="password" id="password" />
+        <button onclick="login()">Login</button>
+        <hr />
+        <button onclick="getData()">Get Protected Data</button>
+        <script>
+            async function login() {
+                const username = document.querySelector("#username").value
+                const password = document.querySelector("#password").value
+                const response = await fetch("http://localhost:3000/login", {
+                    headers: { "Content-Type": "application/json" },
+                    method: "POST",
+                    body: JSON.stringify({ username, password }),
+                })
+                if (response.ok) {
+                    const authString = await response.headers.get("Authorization")
+                    const token = authString.split(" ")[1]
+                    localStorage.setItem("jwt", token)
+                    alert("Login successful!")
+                } else {
+                    alert("Login failed!")
+                }
             }
-        }
 
-        async function getData() {
-            const token = localStorage.getItem("jwt")
-            const response = await fetch("http://localhost:3000/protected", {
-                headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
-            })
-            if (response.ok) {
-                const data = await response.json()
-                alert(JSON.stringify(data))
-            } else {
-                alert("Error retrieving data!")
+            async function getData() {
+                const token = localStorage.getItem("jwt")
+                const response = await fetch("http://localhost:3000/protected", {
+                    headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+                })
+                if (response.ok) {
+                    const data = await response.json()
+                    alert(JSON.stringify(data))
+                } else {
+                    alert("Error retrieving data!")
+                }
             }
-        }
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>
 ```
 
