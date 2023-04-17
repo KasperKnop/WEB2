@@ -95,14 +95,14 @@ app.use(logger)
 ## 4. Account Creation
 
 Create a new web server with an endpoint for signing up with email and password.
-You do not have to persist the account details - keeping them in memory while the server is running is fine for now.
+You do not have to persist the account details - keeping them in memory while the server is running is fine.
 
 <blockquote>
 <details>
 <summary>Display hints...</summary>
 <p>You should use a POST request when you are sending data in the body.</p>
 <p>Make sure that you have set up a middleware that parses the request body. You can do this using <code>app.use(express.json())</code>.</p>
-<p>Never store a cleartext password. Make sure that you hash and salt it first. This can be done with <a href=”https://www.npmjs.com/package/bcrypt”>bcrypt</a>.</p>
+<p>Never store a cleartext password. Make sure that you hash and salt it first. This can be done with <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>.</p>
 <details>
 <summary>Display solution...</summary>
 
