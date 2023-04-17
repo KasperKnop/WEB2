@@ -32,7 +32,7 @@ app.listen(3000)
 
 ## 2. Your Own PokeAPI
 
-Create your own Pokemon API where the user can retrieve a pokemon by id. You can use [this file](https://) containing data for the first 151 pokemon.
+Create your own Pokemon API where the user can retrieve a pokemon by id. You can use [this file]([https://](https://github.com/KasperKnop/WEB2/blob/main/10%20Express/Pokemon.js)) containing data for the first 151 pokemon.
 
 <blockquote>
 <details>
