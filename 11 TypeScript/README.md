@@ -7,7 +7,7 @@ Follow [this](https://www.totaltypescript.com/tutorials/beginners-typescript) in
 <blockquote>
 <details>
 <summary>Display hints...</summary>
-<p>You can enter _any_ email when prompted for an email to sign up (no verification required)</p>
+<p>You can enter <em>any</em> email when prompted for an email to sign up (no verification required)</p>
 </details>
 </blockquote>
 
