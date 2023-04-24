@@ -9,7 +9,7 @@ const products: Product[] = [
     { id: 3, name: "flour" },
 ]
 
-function getProductById(id: number) {
+function getProductById(id: number): Product | undefined {
     return products.find(p => p.id === id)
 }
 
