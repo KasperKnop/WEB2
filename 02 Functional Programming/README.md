@@ -181,7 +181,7 @@ console.log(letters)
 
 ## 5. From Title To URL
 
-Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example `"Learn Functional Programmin In JavaScript"` would result in `.../learn-functional-programming-in-javascript`.
+Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example `"Learn Functional Programming In JavaScript"` would result in `.../learn-functional-programming-in-javascript`.
 
 Fill in the pure function, `urlSlug`, so it converts a string `title` and returns the hyphenated version for the URL:
 
