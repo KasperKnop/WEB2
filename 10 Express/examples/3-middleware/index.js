@@ -1,6 +1,6 @@
 import express from "express"
 import users from "./Users.js"
-import logger from "./logger.js"
+import { logger } from "./logger.js"
 
 const app = express()
 app.use(logger)

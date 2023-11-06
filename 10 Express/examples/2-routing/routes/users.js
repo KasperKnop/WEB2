@@ -12,4 +12,4 @@ router.get("/:id", (req, res) => {
     else res.status(404).send({ msg: "No member with the id of " + reqId })
 })
 
-export { router as default }
+export { router as userRouter }
