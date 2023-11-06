@@ -1,0 +1,22 @@
+GET http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imthc3BlciIsInBhc3N3b3JkIjoiJDJiJDEwJG0veTJnZVJTOHBFT3FVMERtTUhpb09xc2VrRnBueTAzOTFlb3lOQkFhQ2NNUEJxYmouMFZ5IiwiaWF0IjoxNjk5MjY3NjU2LCJleHAiOjE2OTkyNzEyNTZ9.gIM2_VSF1rjJtOQlUenQRiTS9YuydLYuyMRdCcnebXE
+
+###
+
+POST http://localhost:3000/signup
+content-Type: application/json
+
+{
+    "username": "kasper",
+    "password": "123"
+}
+
+###
+
+POST http://localhost:3000/login
+content-Type: application/json
+
+{
+    "username": "kasper",
+    "password": "123"
+}
