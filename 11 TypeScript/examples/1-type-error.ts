@@ -1,2 +1,2 @@
 const msg = "hello world"
-msg() // TypeError
+Math.min(msg) // TypeError

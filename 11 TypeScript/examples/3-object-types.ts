@@ -9,4 +9,4 @@ function greet(user: User) {
 
 let user = { name: "Joel", age: "54" }
 
-document.body.textContent = greet(user)
+console.log(greet(user))
