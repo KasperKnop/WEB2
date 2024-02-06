@@ -10,7 +10,7 @@ It is also recommended that you [download](https://code.visualstudio.com/downloa
 2. [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) - Run your code faster without a command-line interface
 3. [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Popular opinionated code formatter
 4. [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Useful later in the course for launching a local server with live reload
-5. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) - Allows for easier pair programming
+5. [Quokka.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) & [Quokka Statusbar Buttons](https://marketplace.visualstudio.com/items?itemName=sketchbuch.vsc-quokka-statusbar) - Allows you to output runtime values inline with the code for fast feedback
 
 ## 2. Looping A Triangle
 
