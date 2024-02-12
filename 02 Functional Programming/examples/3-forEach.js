@@ -14,4 +14,4 @@ for (let i = 0; i < pokemon.length; i++) {
 }
 
 //With HOF
-pokemon.forEach(pokemon => console.log(pokemon))
+pokemon.forEach(pokemon => console.log(pokemon.name))
