@@ -1,11 +1,11 @@
 class Queue<T> {
     private data: T[] = []
 
-    push(item: T) {
+    enqueue(item: T) {
         this.data.push(item)
     }
 
-    pop(): T | undefined {
+    dequeue(): T | undefined {
         return this.data.shift()
     }
 
