@@ -15,4 +15,4 @@ class Queue<T> {
 }
 
 const queue = new Queue<string>()
-queue.push("ITEM")
+queue.enqueue("ITEM")
