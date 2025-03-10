@@ -10,16 +10,18 @@ In this assignment, you must create a Pokédex using React! A Pokédex is a cata
 -   The Pokédex must display a list of Pokémon and support simple pagination (e.g. “next” and “previous” buttons to get the next/previous page of Pokémon), such that not all Pokémon are displayed at the same time.
 -   When a user clicks on a specific Pokémon, additional information about that Pokémon must be displayed. E.g. type(s), stats, abiltities, height and weight.
 -   The application must contain multiple pages (e.g. "pokedex" and "about") and utilize [React Router](https://reactrouter.com/en/main) to route between them.
--   The application must be developed using the [Create React App](https://create-react-app.dev/) toolchain.
+-   The application must be developed using [Vite](https://vite.dev/).
 
 Feel free to expand on the requirements.
 
 **Handin instructions:**
 
--   Your Pokédex must be hosted on Github Pages. Follow [this guide](https://create-react-app.dev/docs/deployment/#github-pages) for instructions on how to deploy your React App.
+-   Your Pokédex must be hosted on Github Pages. Follow [this guide](https://vite.dev/guide/static-deploy#github-pages) for instructions on how to deploy your React App.
 -   On itslearning, hand in a **link.txt** file containing the link to your Pokedex hosted on GitHub Pages.
 
 The assignment can be developed alone or in groups of 2-4 and is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
+
+*N.B.: If you'd like to create something different from a Pokedex, feel free to choose another API that suits your project. Just ensure that you can still meet all the requirements outlined above (pagination, detailed view, multiple pages...)!*
 
 <blockquote>
 <details>
