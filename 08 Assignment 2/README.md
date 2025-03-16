@@ -12,7 +12,7 @@ In this assignment, you must create a Pokédex using React! A Pokédex is a cata
 -   The application must contain multiple pages (e.g. "pokedex" and "about") and utilize [React Router](https://reactrouter.com/en/main) to route between them.
 -   The application must be developed using [Vite](https://vite.dev/).
 
-Feel free to expand on the requirements.
+Feel free to expand on the requirements. If you'd like to create something different from a Pokedex, you are welcome to find another Web API to work with. Just ensure that you meet all the requirements outlined above (pagination, a detailed view and multiple pages)!
 
 **Handin instructions:**
 
@@ -20,8 +20,6 @@ Feel free to expand on the requirements.
 -   On itslearning, hand in a **link.txt** file containing the link to your Pokedex hosted on GitHub Pages.
 
 The assignment can be developed alone or in groups of 2-4 and is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
-
-*N.B.: If you'd like to create something different from a Pokedex, feel free to choose another API that suits your project. Just ensure that you can still meet all the requirements outlined above (pagination, detailed view, multiple pages...)!*
 
 <blockquote>
 <details>
