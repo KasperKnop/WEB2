@@ -17,7 +17,7 @@ Feel free to expand on the requirements. If you'd like to create something diffe
 **Handin instructions:**
 
 -   Your App must be hosted on Github Pages. Follow [this guide](https://vite.dev/guide/static-deploy#github-pages) for instructions on how to deploy your React App.
--   On itslearning, send the link to your App hosted on GitHub Pages.
+-   On itslearning, hand in the link to your App hosted on GitHub Pages.
 
 The assignment can be developed alone or in groups of 2-4 and is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
 
