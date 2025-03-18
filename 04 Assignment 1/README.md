@@ -18,7 +18,7 @@ In the following example, the first player (X) wins the game in seven steps:
 
 There are no requirements for the styling of the games.
 
-Thoroughly test your games, verifying that they have identical behavior and work as intended. Submit the assignment as **two html files** (oo.html & fun.html with embedded script and style tags) on itslearning, alone or in groups of 2-4. The assignment is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
+Thoroughly test your games, verifying that they have identical behavior and work as intended. Submit the assignment as **two html files** (oop.html & fp.html with embedded script and style tags) on itslearning, alone or in groups of 2-4. The assignment is evaluated on an approved/not approved basis. It must be approved in order to attend the course exam.
 
 **Evaluation criteria:**
 
