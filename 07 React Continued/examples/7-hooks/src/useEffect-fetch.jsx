@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 export default function App() {
-    return <PokemonImage name={"ditto"} />
+    return <PokemonImage name={"pikachu"} />
 }
 
 function PokemonImage({ name }) {
