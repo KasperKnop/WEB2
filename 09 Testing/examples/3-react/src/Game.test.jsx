@@ -1,4 +1,3 @@
-import { it, expect } from "vitest"
 import { render, screen, fireEvent } from "@testing-library/react"
 import Game from "./Game"
 
