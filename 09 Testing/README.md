@@ -33,7 +33,7 @@ npm i -D @babel/preset-env
 { "presets": ["@babel/preset-env"] }
 ```
 
-You can now run all `test.js` files with `npm test`. If you are using _Create React App_, everything will already be set up for you.
+You can now run all `test.js` files with `npm test`. For projects set up with _Vite_, you can install [_Vitest_](https://vitest.dev/) instead, which is a drop-in replacement for Jest.
 
 ## 2. Capitalizing a String
 
@@ -289,7 +289,7 @@ it("works with negativ shift", () => {
 
 ## 7. React Testing Library
 
-Use _Create React App_ and _React Testing Library_ to write a test for a `Counter` component containing a heading with a count and two buttons - one to increment the count and one to decrement the count. The test should verify that both buttons work as intended. Write the code to pass the test.
+Use _Vite_, _Vitest_ and _React Testing Library_ to write a test for a `Counter` component containing a heading with a count and two buttons - one to increment the count and one to decrement the count. The test should verify that both buttons work as intended. Write the code to pass the test.
 
 <blockquote>
 <details>
@@ -318,6 +318,7 @@ export default function Counter() {
 
 ```js
 // Counter.test.js
+import { it, expect } from "vitest"
 import { render, screen, fireEvent } from "@testing-library/react"
 import Counter from "./Counter"
 
@@ -354,7 +355,7 @@ Experiment with _Lighthouse_ reports for various web applications. What are the 
 
 ## 9. Testing Your Previous Work
 
-Test your previous assignments and exercises! Write tests using Jest and React Testing Library and generate _Lighthouse_ reports to find opportunities for improvements.
+Test your previous assignments and exercises! Write tests using Jest/Vitest and React Testing Library and generate _Lighthouse_ reports to find opportunities for improvements.
 
 <blockquote>
 <details>
