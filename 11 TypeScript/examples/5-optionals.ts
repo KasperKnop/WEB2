@@ -4,7 +4,7 @@ interface Employee {
     middleName?: string
 }
 
-let employee: Employee = { firstName: "Hohn", lastName: "Doe" }
+let employee: Employee = { firstName: "John", lastName: "Doe" }
 
 function range(start: number, end: number, step?: number) {
     //...
