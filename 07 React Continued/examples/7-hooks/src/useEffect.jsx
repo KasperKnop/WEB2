@@ -4,9 +4,8 @@ export default function App() {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        setTimeout(count => count++, 1000)
-        console.log("useEffect called")
-    }, [])
+        console.log("Effect called")
+    }, [count])
 
-    return <button onClick={() => setCount(count + 1)}>Increment</button>
+    return <button onClick={() => setCount(count + 1)}>Increment {count}</button>
 }

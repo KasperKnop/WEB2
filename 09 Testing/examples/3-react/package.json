@@ -28,6 +28,7 @@
         "eslint-plugin-react-refresh": "^0.4.19",
         "globals": "^15.15.0",
         "jsdom": "^26.0.0",
+        "msw": "^2.12.14",
         "vite": "^6.2.0",
         "vitest": "^3.0.9"
     }
