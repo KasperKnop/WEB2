@@ -341,7 +341,32 @@ it("increments and decrements count", () => {
 </details>
 </blockquote>
 
-## 8. Performance Testing
+## 8. Mock Service Worker
+
+You can mock API requests using Mock Service Worker (MSW). This allows you to test frontend code without relying on a real backend. Read through the [official documentation](https://mswjs.io/docs/quick-start) and set up a handler, that intercepts a fetch request and returns mocked data.
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+<p>MSW does not mock functions inside React - it intercepts real requests (fetch) at the network level. Your component does not need to change at all - MSW works without modifying production code</p>
+
+</details>
+</blockquote>
+
+## 9. Playwright (End-to-End Testing)
+
+Sometimes you need the real deal! Familiarize yourself with Playwright through the [official introduction](https://playwright.dev/docs/intro). Explore how to write and generate tests, and try testing a website of your choice.
+
+<blockquote>
+<details>
+<summary>Display hints...</summary>
+<p>Playwright runs a real browser, so think in terms of what a user would see and do, not components or functions.</p>
+<p>The <a href="https://playwright.dev/docs/getting-started-vscodecheatsheet">VS Code Extension might be helpful.</a></p>
+
+</details>
+</blockquote>
+
+## 10. Performance Testing
 
 Experiment with _Lighthouse_ reports for various web applications. What are the lowest and higest scores you can find for performance, accessibility, best practices and SEO? How do the applications fair in metrics such as First Contentful Paint, Largest Contentful Paint, Time to Interactive and Cumulative Layout Shift? What are their opportunities for improvement?
 
@@ -353,9 +378,9 @@ Experiment with _Lighthouse_ reports for various web applications. What are the 
 </details>
 </blockquote>
 
-## 9. Testing Your Previous Work
+## 11. Testing Your Previous Work
 
-Test your previous assignments and exercises! Write tests using Jest/Vitest and React Testing Library and generate _Lighthouse_ reports to find opportunities for improvements.
+Test your previous assignments and exercises! Write tests using Vitest, React Testing Library, PlayWright and MSW, and generate _Lighthouse_ reports to find opportunities for improvements.
 
 <blockquote>
 <details>
